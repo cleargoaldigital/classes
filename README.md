@@ -1,0 +1,1 @@
+Some experimentation with JavaScript classes.
