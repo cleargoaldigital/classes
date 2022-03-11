@@ -50,13 +50,11 @@ console.log('MARINY School was established in the year ' + mariny.year + ' and i
 
 console.log('FAZL-OMAR College was established in the year ' + fazl.year + ' and is located at ' + fazl.location + '.');
 
-// console.log(mariny.changeYear(12));
-
-
+// Another example of class, set and get methods.
 class Person{
 
   set fname(first){
-    this._fname = first;
+    this._fname = this.validateName(first);
   }
 
   get fname(){
@@ -64,7 +62,7 @@ class Person{
   }
 
   set lname(last){
-    this._lname = last;
+    this._lname = this.validateName(last);
   }
 
   get lname(){
@@ -75,11 +73,19 @@ class Person{
     let allName = this.makeName(greet);
     return allName;
   }
-  constructor(fname, lname){
-    this.fname = fname;
-    this.lname = lname;
+  constructor(first, last){
+    this.fname = this.validateName(first);
+    this.lname = this.validateName(last);
   }
 
+  validateName(name){
+    if(name != undefined){
+      if(name.length>=5){
+        return name;
+      }
+      return "Bad Name";
+    }
+  }
   makeName(greet){
     if(greet === true){
       return this.addGreet() + ' '+ this._fname + ' '+ this._lname;
@@ -95,15 +101,9 @@ class Person{
 
 let father = new Person("Taofeek", "Ajibade");
 
-// console.log(father.fname + ' ' + father.lname);
-
 let mother = new Person("Hibat", "Ajibade")
 
-// console.log(mother.fname + ' ' + mother.lname);
-
 let son = new Person("Abdulhayy", "Ajibade")
-
-// console.log(son.fname + ' ' + son.lname);
 
 console.log(father.fullName(true));
 console.log(mother.fullName(true));
