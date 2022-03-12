@@ -52,11 +52,9 @@ console.log('FAZL-OMAR College was established in the year ' + fazl.year + ' and
 
 // Another example of class, set and get methods.
 class Person{
-
   set fname(first){
     this._fname = this.validateName(first);
   }
-
   get fname(){
     return this._fname;
   }
@@ -64,7 +62,6 @@ class Person{
   set lname(last){
     this._lname = this.validateName(last);
   }
-
   get lname(){
     return this._lname;
   }
@@ -73,6 +70,7 @@ class Person{
     let allName = this.makeName(greet);
     return allName;
   }
+  
   constructor(first, last){
     this.fname = this.validateName(first);
     this.lname = this.validateName(last);
@@ -96,23 +94,25 @@ class Person{
   addGreet(){
     return "Hello";
   }
-
 }
 
 let father = new Person("Taofeek", "Ajibade");
-
-let mother = new Person("Hibat", "Ajibade")
-
-let son = new Person("Abdulhayy", "Ajibade")
+let mother = new Person("Hibat", "Ajibade");
+let son = new Person("Abdulhayy", "Ajibade");
 
 console.log(father.fullName(true));
-console.log(mother.fullName(true));
-console.log(son.fullName(true));
+console.log(mother.fullName());
+console.log(son.fullName());
 
+// More examples
 
 class Address{
   get city(){
     return this._city;
+  }
+  
+  get state(){
+    return this._state;
   }
 
   constructor(city, state){
@@ -147,12 +147,13 @@ class Customer{
 
 let empAddress = new Address('Modakeke', 'Osun');
 let staff1 = new Employee(1, 'Taofeek', empAddress);
-
-let custAddress = new Address('Kuta', 'West');
+let custAddress = new Address('Kuta', 'Oyo');
 let customer1 = new Customer(1, 'ClearGoal Digital Solutions', custAddress);
 
 console.log(staff1.address.city);
+console.log(staff1.address.state);
 console.log(customer1.address.city);
+console.log(customer1.address.state);
 
 // Basics of Javascript Inheritance
 
@@ -189,12 +190,14 @@ console.log(staff2.names); //Super's getter
 console.log(staff2.title); //Employee's setter
 
 let staff3 = new Employees();
-staff3.name = 'Adewale';
+staff3.names = 'Adewale';
 staff3.title = 'Developer';
 
-console.log(staff3.name);
+console.log(staff3.names);
 console.log(staff3.title);
 
+let staff4 = new Employees('Nurulhayy', 'Software Developer');
 
+console.log(staff4.names + ' is the latest '+ staff4.title)
 let human = new Personal('Ajibade');
 console.log(human.names)
